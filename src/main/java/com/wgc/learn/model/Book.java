@@ -1,11 +1,9 @@
 package com.wgc.learn.model;
 
-/**
- * Created by Administrator on 8/11/2018.
- */
 public class Book {
     private Integer bookId;
-    private String bootName;
+
+    private String bookName;
 
     public Integer getBookId() {
         return bookId;
@@ -15,11 +13,11 @@ public class Book {
         this.bookId = bookId;
     }
 
-    public String getBootName() {
-        return bootName;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setBootName(String bootName) {
-        this.bootName = bootName;
+    public void setBookName(String bookName) {
+        this.bookName = bookName == null ? null : bookName.trim();
     }
 }
