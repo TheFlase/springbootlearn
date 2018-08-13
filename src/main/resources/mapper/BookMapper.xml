@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wgc.learn.dao.BookDao" >
-  <resultMap id="BaseResultMap" type="com.wgc.learn.model.Book" >
+  <resultMap id="BaseResultMap" type="Book" >
     <id column="book_id" property="bookId" jdbcType="INTEGER" />
     <result column="book_name" property="bookName" jdbcType="VARCHAR" />
   </resultMap>
@@ -57,8 +57,8 @@
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
 
-  <select id="listAllBooks" resultType="java.util.Map">
-    SELECT * FROM book;
+  <select id="listAllBooks" resultMap="BaseResultMap">
+    SELECT book_id,book_name FROM book;
   </select>
 
 </mapper>
