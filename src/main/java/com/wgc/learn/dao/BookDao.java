@@ -27,4 +27,11 @@ public interface BookDao {
     int updateByPrimaryKeySelective(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    /**
+     * 根据书籍ID查找书
+     * @param bookId
+     * @return
+     */
+    Book queryBookById(Integer bookId);
 }

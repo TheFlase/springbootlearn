@@ -61,4 +61,8 @@
     SELECT book_id,book_name FROM book;
   </select>
 
+  <select id="queryBookById" parameterType="int" resultMap="BaseResultMap">
+    SELECT book_id,book_name FROM book WHERE book_id = #{book_id};
+  </select>
+
 </mapper>

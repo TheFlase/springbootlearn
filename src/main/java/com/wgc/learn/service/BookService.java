@@ -9,5 +9,16 @@ import java.util.List;
  */
 
 public interface BookService {
+    /**
+     * 查询所有的书籍信息
+     * @return
+     */
     public List<Book> listAllBooks();
+
+    /**
+     * 根据书ID查询书籍信息
+     * @param bookId
+     * @return
+     */
+    public Book queryBookById(Integer bookId);
 }

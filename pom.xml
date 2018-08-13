@@ -80,8 +80,6 @@
             <version>${mysql-connector}</version>
         </dependency>
 
-
-
     </dependencies>
 
     <build>
