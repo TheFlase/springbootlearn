@@ -21,4 +21,10 @@ public interface BookService {
      * @return
      */
     public Book queryBookById(Integer bookId);
+
+    /**
+     * 发送书籍名称给消费者
+     * @param msg
+     */
+    public void  sendbookNamesMsg(String msg);
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -45,5 +46,13 @@ public class BookController {
         Book book = bookService.queryBookById(id);
         model.addAttribute("book",book);
         return "book";
+    }
+
+    @RequestMapping("sendBook")
+    @ResponseBody
+    public String index(Model model){
+        List<Book> list = bookService.listAllBooks();
+        bookService.sendbookNamesMsg(list.toString());
+        return list.toString();
     }
 }
