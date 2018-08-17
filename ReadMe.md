@@ -27,25 +27,39 @@ INSERT INTO `book` VALUES ('3', 'golang');
 三、Query url:
 
 1)springboot启动测试：http://localhost:8080/index/
+
 2）查询图书列表：http://localhost:8080/book/listAllBooks
+
 3)根据图书ID查找图书：http://localhost:8080/book/queryBookById/3
+
 4)统一异常返回页面：http://localhost:8080/index/hello
+
 5）统一异常返回json：http://localhost:8080/index/json
+
 6）测试发送消息：http://localhost:8080/book/sendBook
+
+7）redis根据书籍ID去redis获取书籍信息：http://localhost:8080/book/queryBookByIdFromRedis/2
 
 四、安装rabbitMq
 1)创建/usr/program/rabbitmq目录
 2）进入该目录先安装erlang
 
 wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm
+
 rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
+
 rpm --import http://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+
 sudo yum install -y erlang
 
 3）到rabbitqm官网查找最新安装包并安装
+
 官网地址：http://www.rabbitmq.com/install-rpm.html#downloads
+
 编者下载了rabbitmq-server.noarch 0:3.7.7-1.el6
+
 rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+
 yum install -y rabbitmq-server.noarch 0:3.7.7-1.el6
 
 
