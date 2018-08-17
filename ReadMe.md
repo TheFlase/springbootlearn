@@ -1,8 +1,9 @@
 一、Introduction
 
-just for springboot learning
+springboot learning
 1.springboot mvc
 2.+mybatis+freemarker
+and 
 
 二、initialize SQL:
 
