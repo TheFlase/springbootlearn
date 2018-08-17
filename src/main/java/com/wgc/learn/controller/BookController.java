@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,6 +23,7 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
 
     /**
      * 查询所有书籍
@@ -46,6 +49,17 @@ public class BookController {
         Book book = bookService.queryBookById(id);
         model.addAttribute("book",book);
         return "book";
+    }
+
+    /**
+     * 根据书的ID从redis获取书籍信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "queryBookByIdFromRedis/{id}")
+    public Book queryBookByIdFromRedis(@PathVariable("id") int id){
+        return bookService.queryBookByIdFromRedis(id);
     }
 
     @RequestMapping("sendBook")

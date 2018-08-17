@@ -23,6 +23,13 @@ public interface BookService {
     public Book queryBookById(Integer bookId);
 
     /**
+     * 根据书的ID从redis获取书籍信息
+     * @param bookId
+     * @return
+     */
+    public Book queryBookByIdFromRedis(Integer bookId);
+
+    /**
      * 发送书籍名称给消费者
      * @param msg
      */

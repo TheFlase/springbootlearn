@@ -69,18 +69,33 @@ yum install -y rabbitmq-server.noarch 0:3.7.7-1.el6
 
 4）修改配置：
 
-查找默认配置位置：find / -name "rabbitmq.config.example"，我这边搜索结果是：/usr/share/doc/rabbitmq-server-3.7.7/rabbitmq.config.example
-复制默认配置：cp /usr/share/doc/rabbitmq-server-3.7.7/rabbitmq.config.example /etc/rabbitmq/
-修改配置文件名：cd /etc/rabbitmq ; mv rabbitmq.config.example rabbitmq.config
-编辑配置文件，开启用户远程访问：vim rabbitmq.config
-在文档里面默认有这样一句话：%% {loopback_users, []},，注意，该语句最后有一个逗号，等下是要去掉的
-我们需要改为：{loopback_users, []}，
-开启 Web 界面管理：rabbitmq-plugins enable rabbitmq_management
-重启 RabbitMQ 服务：service rabbitmq-server restart
+查找默认配置位置：
+find / -name "rabbitmq.config.example"，我这边搜索结果是：/usr/share/doc/rabbitmq-server-3.7.7/rabbitmq.config.example
+
+复制默认配置：
+cp /usr/share/doc/rabbitmq-server-3.7.7/rabbitmq.config.example /etc/rabbitmq/
+
+修改配置文件名：
+cd /etc/rabbitmq ; mv rabbitmq.config.example rabbitmq.config 
+
+编辑配置文件，开启用户远程访问：
+vim rabbitmq.config,在文档里面默认有这样一句话：%% {loopback_users, []},，注意，该语句最后有一个逗号，等下是要去掉的,我们需要改为：{loopback_users, []}，
+
+开启 Web 界面管理：
+rabbitmq-plugins enable rabbitmq_management
+
+重启 RabbitMQ 服务：
+service rabbitmq-server restart
+
 开放防火墙端口（centos6为例）：
 sudo iptables -I INPUT -p tcp -m tcp --dport 15672 -j ACCEPT
+
 sudo iptables -I INPUT -p tcp -m tcp --dport 5672 -j ACCEPT
+
 sudo service iptables save
+
 sudo service iptables restart
+
 浏览器访问：http://192.168.1.114:15672 默认管理员账号：guest 默认管理员密码：guest
+
 

@@ -1,6 +1,9 @@
 package com.wgc.learn.model;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable{
+
     private Integer bookId;
 
     private String bookName;
@@ -19,5 +22,13 @@ public class Book {
 
     public void setBookName(String bookName) {
         this.bookName = bookName == null ? null : bookName.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                '}';
     }
 }
